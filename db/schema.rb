@@ -10,6 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_09_12_082513) do
+
+  create_table "choices", force: :cascade do |t|
+    t.integer "word_id"
+    t.string "name"
+    t.boolean "is_answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["word_id"], name: "index_choices_on_word_id"
+  end
+
+  create_table "words", force: :cascade do |t|
+    t.string "name"
+    t.integer "type", limit: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
