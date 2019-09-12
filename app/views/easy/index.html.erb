@@ -4,8 +4,7 @@
 <h2><%= "word".split("").sort().join() %></h2>
 
 <ul>
-  <li>wood</li>
-  <li>word</li>
-  <li>drow</li>
-  <li>down</li>
+  <% @choices.each do |choice| %>
+    <li><%= choice.name %></li>
+  <% end %>
 </ul>
