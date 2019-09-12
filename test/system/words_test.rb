@@ -15,7 +15,7 @@ class WordsTest < ApplicationSystemTestCase
     click_on "New Word"
 
     fill_in "Name", with: @word.name
-    fill_in "Type", with: @word.type
+    fill_in "Level", with: @word.level
     click_on "Create Word"
 
     assert_text "Word was successfully created"
@@ -27,7 +27,7 @@ class WordsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Name", with: @word.name
-    fill_in "Type", with: @word.type
+    fill_in "Level", with: @word.level
     click_on "Update Word"
 
     assert_text "Word was successfully updated"

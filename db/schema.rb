@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_09_12_082513) do
 
   create_table "words", force: :cascade do |t|
     t.string "name"
-    t.integer "type", limit: 1
+    t.integer "level", limit: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
