@@ -160,18 +160,14 @@ $(function(){
       quizArea.find('.quiz_area_icon').addClass('false');  //不正解の処理
     }
     setTimeout(function(){
-      //表示を元に戻す
-      quizArea.find('.quiz_ans_area ul li').removeClass('selected');
+      quizArea.find('.quiz_ans_area ul li').removeClass('selected'); //表示を元に戻す
       quizArea.find('.quiz_area_icon').removeClass('true false');
       quizArea.find('.quiz_area_bg').hide();
-      //問題のカウントを進める
-      quiz_cnt++;
+      quiz_cnt++;                                                    //問題のカウントを進める
       if(quiz_fin_cnt > quiz_cnt){
-        //次の問題を設定する
-        quizShow();
+        quizShow();                                                  //次の問題を設定する
       }else{
-        //結果表示画面を表示
-        quizResult();
+        quizResult();                                                //結果表示画面を表示
       }
     }, 1500);
   });
@@ -181,7 +177,7 @@ $(function(){
   });
     
   function quizReset(){
-    quizArea.html(quiz_html); //表示を元に戻す
+    quizArea.html(quiz_html);
     quiz_cnt = 0;
     quiz_success_cnt = 0;
     //aryQuiz = arrShuffle(aryQuiz);
