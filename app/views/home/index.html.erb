@@ -176,37 +176,27 @@ $(function(){
     }, 1500);
   });
     
-  //もう一度挑戦するを押した時の処理
   quizArea.on('click', '.quiz_restart', function(){
     quizReset();
   });
     
-  //リセットを行う関数
   function quizReset(){
     quizArea.html(quiz_html); //表示を元に戻す
     quiz_cnt = 0;
     quiz_success_cnt = 0;
-    //aryQuiz = arrShuffle(aryQuiz); //毎回出題の順番をシャッフルしたい場合はここのコメントを消してね
+    //aryQuiz = arrShuffle(aryQuiz);
     quizShow();
   }
     
-  //問題を表示する関数
   function quizShow(){
-    //何問目かを表示
-    quizArea.find('.quiz_no').text((quiz_cnt + 1));
-    //問題文を表示
-    quizArea.find('.quiz_question').text(aryQuiz[quiz_cnt]['question']);
-    //正解の回答を取得する
-    var success = aryQuiz[quiz_cnt]['answer'][0];
-    //現在の選択肢表示を削除する
-    quizArea.find('.quiz_ans_area ul').empty();
-    //問題文の選択肢をシャッフルさせる(自作関数) .concat()は参照渡し対策
-    var aryHoge = arrShuffle(aryQuiz[quiz_cnt]['answer'].concat());
-    //問題文の配列を繰り返し表示する
-    $.each(aryHoge, function(key, value){
+    quizArea.find('.quiz_no').text((quiz_cnt + 1));                      //何問目かを表示
+    quizArea.find('.quiz_question').text(aryQuiz[quiz_cnt]['question']); //問題文を表示
+    var success = aryQuiz[quiz_cnt]['answer'][0];                        //正解の回答を取得する
+    quizArea.find('.quiz_ans_area ul').empty();                          //現在の選択肢表示を削除する
+    var aryHoge = arrShuffle(aryQuiz[quiz_cnt]['answer'].concat());      //問題文の選択肢をシャッフルさせる(自作関数) .concat()は参照渡し対策
+    $.each(aryHoge, function(key, value){                                //問題文の配列を繰り返し表示する
       var fuga = '<li>' + value + '</li>';
-      //正解の場合はdata属性を付与する
-      if(success === value){
+      if(success === value){                                             //正解の場合はdata属性を付与する
         fuga = '<li data-true="1">' + value + '</li>';
       }
       quizArea.find('.quiz_ans_area ul').append(fuga);
