@@ -149,21 +149,15 @@ $(function(){
   );
     
   quizReset();
-    
-  //回答を選択した後の処理
-  quizArea.on('click', '.quiz_ans_area ul li', function(){
-    //画面を暗くするボックスを表示（上から重ねて、結果表示中は選択肢のクリックやタップを封じる
-    quizArea.find('.quiz_area_bg').show();
-    //選択した回答に色を付ける
-    $(this).addClass('selected');
+
+  quizArea.on('click', '.quiz_ans_area ul li', function(){ //回答を選択した後の処理
+    quizArea.find('.quiz_area_bg').show();                 //画面を暗くするボックスを表示（上から重ねて、結果表示中は選択肢のクリックやタップを封じる
+    $(this).addClass('selected');                          //選択した回答に色を付ける
     if($(this).data('true')){
-      //正解の処理 〇を表示
-      quizArea.find('.quiz_area_icon').addClass('true');
-      //正解数をカウント
-      quiz_success_cnt++;
+      quizArea.find('.quiz_area_icon').addClass('true');   //正解の処理 〇を表示
+      quiz_success_cnt++;                                  //正解数をカウント
     }else{
-      //不正解の処理
-      quizArea.find('.quiz_area_icon').addClass('false');
+      quizArea.find('.quiz_area_icon').addClass('false');  //不正解の処理
     }
     setTimeout(function(){
       //表示を元に戻す
